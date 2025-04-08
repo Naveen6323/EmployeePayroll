@@ -1,0 +1,115 @@
+<div class="main">
+
+<div class="heading-con">
+
+    <div class="logo">
+        <img src="https://placehold.co/200x50/png?text=Employee+Payroll" alt="Employee Payroll Logo" />
+        <div class="heading">
+            <h3 id="heading">EMPLOYEE</h3>
+            <h3>PAYROLL</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="form-container">
+            <h2>Employee Payroll Form</h2>
+        <form id="payrollForm" [formGroup]="registerForm">
+            <div class="form-group name-grp">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required formControlName="name" placeholder="Enter your name" />
+            </div>
+
+            <div class="form-group images">
+                <label>Profile Image</label>
+                <div class="profile-images">
+                    <label class="profile-option">
+                        <input type="radio" name="profile" value="profile1" required formControlName="profile">
+                        <img src="assets/images/profile1.jpg" alt="Profile" width="40" height="40">
+                    </label>
+                    <label class="profile-option">
+                        <input type="radio" name="profile" value="profile2" formControlName="profile">
+                        <img src="https://placehold.co/40x40/png" alt="Profile 2">
+                    </label>
+                    <label class="profile-option">
+                        <input type="radio" name="profile" value="profile3" formControlName="profile">
+                        <img src="https://placehold.co/40x40/png" alt="Profile 3">
+                    </label>
+                    <label class="profile-option">
+                        <input type="radio" name="profile" value="profile4" formControlName="profile">
+                        <img src="https://placehold.co/40x40/png" alt="Profile 4">
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group gender-grp">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="Male"  formControlName="gender" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Female" formControlName="gender"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group department-grp">
+                <label>Department</label>
+                <div class="checkbox-group" >
+                    <label><input type="radio" name="department" value="HR"  formControlName="department" required> HR</label>
+                    <label><input type="radio" name="department" value="Sales" formControlName="department"> Sales</label>
+                    <label><input type="radio" name="department" value="Finance" formControlName="department"> Finance</label>
+                    <label><input type="radio" name="department" value="Engineer" formControlName="department"> Engineer</label>
+                </div>
+            </div>
+
+            <div class="form-group salary-grp">
+                <label for="salary">Salary</label>
+                <select id="salary" name="salary" required formControlName="salary">
+                    <option value="">Select Salary</option>
+                    <option *ngFor="let salary of Salary"value={{salary}}>{{salary}}</option>
+                    
+                </select>
+            </div>
+
+            <div class="form-group date-grp">
+                <label>Start Date</label>
+                <div class="date-group">
+                    <select name="day" class="day" required formControlName="day">
+                        <option  value="">Day</option>
+                        <option  *ngFor="let day of Day" value={{day}}>{{day}}</option>
+                        <!-- <option value="2">2</option> -->
+                        <!-- Add more days -->
+                    </select>
+                    <select name="month" class="day" required formControlName="month" >
+                        <option value="">Month</option>
+                        <option  *ngFor="let month of Month" value={{month}}>{{month}}</option>
+                        <!-- Add more months -->
+                    </select>
+                    <select name="year" class="day" required formControlName="year">
+                        <option value="">Year</option>
+                        <option  *ngFor="let year of Year" value={{year}}>{{year}}</option>
+                        <!-- Add more years -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group notes-grp">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" rows="3" formControlName="note"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn reset" (click)="navigateToDashboard()">Cancel</button>
+                <div class="submit-reset">
+                    <button type="submit" class="btn reset" (click)="onSubmit()">Submit</button>
+                    <button type="reset" class="btn reset">Reset</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
